@@ -5,6 +5,10 @@ namespace util {
 
     export enum nullType { Undefined = 1, Null = 2, Nan = 3}
 
+    /**
+     * get the null
+     * value type
+     */
     //%blockid=util_nulltype
     //%block="$t"
     //%group="null value"
@@ -32,6 +36,10 @@ namespace util {
         Phi = 2
     }
 
+    /**
+     * get advance math
+     * number value template
+     */
     //%blockid=util_mathtemp
     //%block="$t"
     //%group="math temp"
@@ -49,8 +57,14 @@ namespace util {
 
     export enum runType { inBackground = 1, untilDone = 2}
 
+    /**
+     * statement function
+     * with the run step type
+     * in the statement
+     */
     //%blockid=util_runtype
     //%block="on run in zone $t do"
+    //%handlerStatement=1
     //%group="timer"
     //%weight=1
     export function runInDo(t:runType, thendo:() => void ) {
