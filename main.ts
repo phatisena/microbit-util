@@ -79,4 +79,13 @@ namespace util {
             return;
         }
     }
+
+    //%blockid="util_runandre"
+    //%block="run do"
+    //%handlerStatement=1
+    //%group="run event"
+    //%weight=1
+    export function runToRe( result:() => (any|any[]|any[][]|any[][][]|any[][][][]|any[][][][][]|any[][][][][][]|any[][][][][][][]|any[][][][][][][][])) {
+        return result()
+    }
 }
