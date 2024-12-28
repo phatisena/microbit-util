@@ -82,10 +82,11 @@ namespace util {
 
     //%blockid="util_runandre"
     //%block="run do"
-    //%handlerStatement=2
+    //%handlerStatement=return
     //%group="run event"
     //%weight=1
     export function runToRe( result:() => (any|any[]|any[][]|any[][][]|any[][][][]|any[][][][][]|any[][][][][][]|any[][][][][][][]|any[][][][][][][][])) {
-        return result()
+        let v = result()
+        return v
     }
 }
