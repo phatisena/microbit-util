@@ -80,13 +80,37 @@ namespace util {
         }
     }
 
-    //%blockid="util_runandre"
-    //%block="run do"
-    //%handlerStatement=return
-    //%group="run event"
+    //%shim=ENUM_GET
+    //%blockId=util_enum_msg
+    //%block="$arg"
+    //%enumName="msgKey"
+    //%enumMemberName="msgId"
+    //%enumInitialMembers="myMsg"
+    //%enumPromptHint="Enter your massage boardcasting here..."
+    //%blockHidden=true
+    export function _colorEnumShim(arg: number) {
+        return arg;
+    }
+
+    let castKey: {[key:number]: boolean} = {}
+
+    //%blockid=util_sendmsg
+    //%block="send $key as massage"
+    //%key.shadow=util_enum_msg
+    //%group="boardcast"
+    //%weight=2
+    export function sendMsg(key:number) {
+        castKey[key] = true
+    }
+
+    //%blockid=util_remsg
+    //%block="on received $key do"
+    //%key.shadow=util_enum_msg
+    //%group="boardcast"
     //%weight=1
-    export function runToRe( result:() => (any|any[]|any[][]|any[][][]|any[][][][]|any[][][][][]|any[][][][][][]|any[][][][][][][]|any[][][][][][][][])) {
-        let v = result()
-        return v
+    export function reMsg(key:number, thendo:() => void) {
+        if (!(castKey[key])) return;
+        thendo()
+        castKey[key] = false
     }
 }
