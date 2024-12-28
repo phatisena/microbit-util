@@ -104,13 +104,22 @@ namespace util {
     }
 
     //%blockid=util_remsg
-    //%block="on received $key do"
+    //%block="on received $key in $run do"
     //%key.shadow=util_enum_msg
     //%group="boardcast"
     //%weight=1
-    export function reMsg(key:number, thendo:() => void) {
+    export function reMsg(key:number, run:runType, thendo:() => void) {
         if (!(castKey[key])) return;
-        thendo()
+        switch (run) {
+            case 1:
+            control.runInBackground(thendo)
+            break;
+            case 2:
+            control.runInParallel(thendo)
+            break;
+            default:
+            break;
+        }
         castKey[key] = false
     }
 }
