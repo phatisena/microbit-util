@@ -106,6 +106,7 @@ namespace util {
     //%blockid=util_remsg
     //%block="on received $key in $run do"
     //%key.shadow=util_enum_msg
+    //%handlerStatement
     //%group="boardcast"
     //%weight=1
     export function reMsg(key:number, run:runType, thendo:() => void) {
