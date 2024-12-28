@@ -86,7 +86,7 @@ namespace util {
     //%enumName="msgKey"
     //%enumMemberName="msgId"
     //%enumInitialMembers="myMsg"
-    //%enumPromptHint="Enter your massage boardcasting here..."
+    //%enumPromptHint="Enter your massage here..."
     //%blockHidden=true
     export function _colorEnumShim(arg: number) {
         return arg;
